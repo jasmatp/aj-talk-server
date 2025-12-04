@@ -14,9 +14,14 @@ app.use(cors());
 
 const server = http.createServer(app);
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://aj-talk.vercel.app",
+];
+
 const io = new Server(server, {
   cors: {
-    origin: "https://aj-talk.vercel.app",
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
   },
 });
